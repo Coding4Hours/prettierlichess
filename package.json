@@ -7,12 +7,7 @@
     "build:chrome": "cross-env BROWSER=chrome npx webpack",
     "build:firefox": "cross-env BROWSER=firefox npx webpack",
     "watch": "npx concurrently --names \"chrome,firefox\" --prefix-colors \"blue,red\" \"cross-env BROWSER=chrome npx webpack -w\" \"cross-env BROWSER=firefox npx webpack -w\"",
-    "popup:serve": "cd dist-chrome && node ../testing/popupServer.js",
-    "popup:run": "npm run build:chrome && cd dist-chrome && node ../testing/popupServer.js",
-    "check": "biome check",
-    "cy:popup": "cypress run --browser chrome --spec 'cypress/e2e/testPopup.cy.js' && cypress run --browser firefox --spec 'cypress/e2e/testPopup.cy.js'",
-    "cy:open": "cypress open",
-    "test:popup": "start-server-and-test popup:run http://localhost:8000/ cy:popup"
+    "check": "biome check"
   },
   "repository": {
     "type": "git",
@@ -29,7 +24,6 @@
     "concurrently": "^8.2.2",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^10.1.0",
-    "cypress": "^12.6.0",
     "mime": "^3.0.0",
     "start-server-and-test": "^2.0.1",
     "web-ext": "^7.8.0",
