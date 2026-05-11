@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://raw.githubusercontent.com/prettierlichess/prettierlichess/master/res/prettierlichess-logo.svg" width=150>
+	<img src="https://raw.githubusercontent.com/Coding4Hours/prettierlichess/master/res/prettierlichess-logo.svg" width=150>
 	<h1 align="center">Prettierlichess</h1>
 </p>
 <p align="center">
@@ -9,8 +9,8 @@
 	<a href="https://addons.mozilla.org/en-US/firefox/addon/prettier-lichess/">
 		<img src="https://img.shields.io/amo/rating/prettier-lichess?color=blue&label=Firefox%20store&logo=firefox&style=for-the-badge">
 	</a>
-	<a href="https://github.com/prettierlichess/prettierlichess/releases/latest">
-		<img src="https://img.shields.io/github/v/release/prettierlichess/prettierlichess?style=for-the-badge">
+	<a href="https://github.com/Coding4Hours/prettierlichess/releases/latest">
+		<img src="https://img.shields.io/github/v/release/Coding4Hours/prettierlichess?style=for-the-badge">
 	</a>
 </p>
 
@@ -22,7 +22,7 @@
 
 Here is the source code for both the chrome and firefox extension! It's simple but it's mine. Feel free to download, fork, use, and mess with it all you want. No attribution or anything required.
 
-The extension is not published in the Apple Store, but it is possible to get it to work in Safari by creating a build with XCode. More information about that can be found [here](https://github.com/prettierlichess/prettierlichess/issues/153).
+The extension is not published in the Apple Store, but it is possible to get it to work in Safari by creating a build with XCode. More information about that can be found [here](https://github.com/Coding4Hours/prettierlichess/issues/153).
 
 ## General Usage
 
@@ -81,15 +81,15 @@ npm run popup:run    # builds Chrome then serves from dist-chrome/
 
 That's pretty much it :smiley:
 
-For a more detailed description of how the extension works, have a look [here](https://github.com/prettierlichess/prettierlichess/blob/master/.github/CONTRIBUTING.md#structure-of-the-extension).
+For a more detailed description of how the extension works, have a look [here](https://github.com/Coding4Hours/prettierlichess/blob/master/.github/CONTRIBUTING.md#structure-of-the-extension).
 
 ## Questions, bugs and feature requests
 
-If you have any questions, feature requests or want to report bugs, feel free to [create an issue](https://github.com/prettierlichess/prettierlichess/issues/new).
+If you have any questions, feature requests or want to report bugs, feel free to [create an issue](https://github.com/Coding4Hours/prettierlichess/issues/new).
 
 ## How to contribute
 
-For more information, see the [contribution page](https://github.com/prettierlichess/prettierlichess/blob/master/.github/CONTRIBUTING.md).
+For more information, see the [contribution page](https://github.com/Coding4Hours/prettierlichess/blob/master/.github/CONTRIBUTING.md).
 
 ## Contributors
 

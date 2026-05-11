@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/prettierlichess/prettierlichess.git"
+    "url": "https://github.com/Coding4Hours/prettierlichess.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/prettierlichess/prettierlichess/issues"
+    "url": "https://github.com/Coding4Hours/prettierlichess/issues"
   },
   "homepage": "https://prettierlichess.github.io/",
   "devDependencies": {
@@ -42,5 +42,9 @@
   "private": true,
   "dependencies": {
     "@simonwep/pickr": "^1.9.0"
-  }
+  },
+  "trustedDependencies": [
+    "core-js",
+    "spawn-sync"
+  ]
 }
