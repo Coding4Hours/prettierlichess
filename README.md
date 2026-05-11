@@ -6,9 +6,6 @@
 	<a href="https://prettierlichess.github.io/">
 		<img src="https://img.shields.io/badge/Official Website-gray?logo=lichess&style=for-the-badge">
 	</a>
-	<a href="https://chrome.google.com/webstore/detail/prettier-lichess/epgnobcgnmchnhgkgpedebbmhbblfcob">
-		<img src="https://img.shields.io/chrome-web-store/rating/epgnobcgnmchnhgkgpedebbmhbblfcob?color=blue&label=Chrome%20store&logo=googlechrome&style=for-the-badge">
-	</a>
 	<a href="https://addons.mozilla.org/en-US/firefox/addon/prettier-lichess/">
 		<img src="https://img.shields.io/amo/rating/prettier-lichess?color=blue&label=Firefox%20store&logo=firefox&style=for-the-badge">
 	</a>
@@ -16,6 +13,8 @@
 		<img src="https://img.shields.io/github/v/release/prettierlichess/prettierlichess?style=for-the-badge">
 	</a>
 </p>
+
+## WARNING: There is no chrome extension as you need to pay a 5 dollar fee to make an account and I am broke and under 18.
 
 [Lichess](https://lichess.org/) is an amazing platform that has more than just the ability to play chess, and all for free. Unfortunately I felt like it didn't show this well with it's current design, nor did it show that it was a site that resides in 2023. Now with Prettier Lichess, Lichess becomes more readable, more discoverable, and prettier (plus customizable colors)!
 
