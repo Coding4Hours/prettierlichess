@@ -156,9 +156,10 @@ body,
 .tabs-horiz,
 .lobby__counters,
 .lobby__streams .stream,
-.timeline,
+.lobby__timeline,
+.lobby__streams .stream,
 .lobby__about a,
-.timeline .entry a,
+.lobby__timeline .entry a,
 .lobby__box__top .title,
 .lobby__box .user-link,
 .tour-spotlight,
@@ -166,8 +167,8 @@ body,
 .lpools > div,
 .lobby__box__top .more,
 .lobby__box td.name a,
-.lobby__blog .post,
-.lobby__blog .post time,
+.lobby__blog .carousel__track a,
+.lobby__blog .carousel__track time,
 .lobby__counters a,
 .lobby__feed,
 .subnav a,
@@ -213,7 +214,7 @@ optgroup,
 select,
 textarea,
 .lobby__streams .more,
-.timeline .more,
+.lobby__timeline .more,
 .puzzle__side__metas .hidden,
 .studies .study li,
 .studies .study .top span,
@@ -586,7 +587,7 @@ group.radio label,
 .lobby__counters,
 .lobby__feed,
 .lobby__streams .stream,
-.timeline,
+.lobby__timeline,
 .lobby__about a,
 .about-side,
 .lobby__puzzle .text,
@@ -1208,7 +1209,7 @@ signal > i {
 .dasher #dasher_app .sound button:hover,
 .dasher #dasher_app .background button:hover,
 .dasher #dasher_app .board button:hover,
-.lobby__blog .post:hover {
+.lobby__blog .carousel__track a:hover {
   background: var(--surfaceColorHover);
 }
 
@@ -1614,22 +1615,23 @@ g[stroke="#888"] {
   background: var(--surfaceColorHover);
 }
 
-.entry {
+.lobby__timeline .entries .entry,
+.lobby__timeline .more {
   padding: 0 10px;
 }
 
-.timeline {
+.lobby__timeline .entries {
   min-height: 200px;
   overflow: overlay;
 }
 
-.timeline .entry::after,
+.lobby__timeline .entries .entry::after,
 .hooks__list td,
 .hook__filters {
   background: none;
 }
 
-.timeline .entry:hover a,
+.lobby__timeline .entries .entry:hover a,
 .hooks__chart .plot.rated,
 .lobby__app .toggle:hover {
   color: var(--primaryColor);
@@ -1876,12 +1878,33 @@ a.button.button-metal:hover {
   }
 }
 
-.lobby__blog .post {
-  padding: 20px;
-  transition: background 0.2s ease-in-out;
+.lobby__blog .carousel__track {
+  height: 100%;
 }
 
-.lobby__blog .post img,
+.carousel__controls button {
+  font-size: 2em;
+  background: var(--surfaceColor);
+  border: none;
+  color: var(--textColor);
+  transition: all 0.2s ease-in-out;
+}
+
+.carousel__controls button:hover {
+  background: var(--primaryColor);
+  color: var(--backgroundColor);
+}
+
+.carousel__controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.lobby__blog .carousel {
+  display: flex;
+  flex-direction: column;
+}
 .lobby__feed,
 .lobby__support a,
 .lobby__app__content,
@@ -4600,7 +4623,7 @@ hr {
   border-top: 1px solid var(--surfaceColorHover);
 }
 
-.tour-chart .timeline {
+.tour-chart .lobby__timeline .entries {
   min-height: auto;
   overflow: visible;
 }
