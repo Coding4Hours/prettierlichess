@@ -1,22 +1,22 @@
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const {execSync} = require('child_process');
+const path = require("node:path");
+const CopyPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { execSync } = require("node:child_process");
 
-const browserTarget = process.env.BROWSER === 'firefox' ? 'firefox' : 'chrome';
-const outputDir = browserTarget === 'firefox' ? 'dist-firefox' : 'dist-chrome';
+const browserTarget = process.env.BROWSER === "firefox" ? "firefox" : "chrome";
+const outputDir = browserTarget === "firefox" ? "dist-firefox" : "dist-chrome";
 
 // Plugin to generate Firefox manifest after build
 class FirefoxManifestPlugin {
 	apply(compiler) {
-		if (browserTarget === 'firefox') {
-			compiler.hooks.afterEmit.tap('FirefoxManifestPlugin', () => {
+		if (browserTarget === "firefox") {
+			compiler.hooks.afterEmit.tap("FirefoxManifestPlugin", () => {
 				try {
-					execSync('node ./scripts/generate-firefox-manifest.js', {
-						stdio: 'inherit',
+					execSync("node ./scripts/generate-firefox-manifest.js", {
+						stdio: "inherit",
 					});
 				} catch (err) {
-					console.error('Failed to generate Firefox manifest:', err);
+					console.error("Failed to generate Firefox manifest:", err);
 				}
 			});
 		}
@@ -24,9 +24,9 @@ class FirefoxManifestPlugin {
 }
 
 module.exports = {
-	mode: 'production',
+	mode: "production",
 	entry: {
-		popup: './src/popup.js',
+		popup: "./src/popup.js",
 	},
 	output: {
 		path: path.resolve(process.cwd(), outputDir),
@@ -36,15 +36,15 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{
-					from: 'src',
-					to: '.',
+					from: "src",
+					to: ".",
 					globOptions: {
-						ignore: ['./popup.js'],
+						ignore: ["./popup.js"],
 					},
 				},
 				{
-					from: './node_modules/@simonwep/pickr/dist/themes/nano.min.css',
-					to: './nano.min.css',
+					from: "./node_modules/@simonwep/pickr/dist/themes/nano.min.css",
+					to: "./nano.min.css",
 				},
 			],
 		}),

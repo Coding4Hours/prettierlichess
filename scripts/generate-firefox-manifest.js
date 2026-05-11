@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("node:fs");
+const path = require("node:path");
 
 const root = process.cwd();
-const srcManifest = path.join(root, 'src', 'manifest.firefox.json');
-const outDir = path.join(root, 'dist-firefox');
-const outManifest = path.join(outDir, 'manifest.json');
+const srcManifest = path.join(root, "src", "manifest.firefox.json");
+const outDir = path.join(root, "dist-firefox");
+const outManifest = path.join(outDir, "manifest.json");
 
 function fail(msg) {
 	console.error(msg);
@@ -20,10 +20,10 @@ if (!fs.existsSync(outDir)) {
 }
 
 try {
-	const data = fs.readFileSync(srcManifest, 'utf8');
+	const data = fs.readFileSync(srcManifest, "utf8");
 	// ensure valid JSON
 	JSON.parse(data);
-	fs.writeFileSync(outManifest, data, 'utf8');
+	fs.writeFileSync(outManifest, data, "utf8");
 	console.log(`Wrote Firefox manifest to ${outManifest}`);
 } catch (err) {
 	fail(`Failed to write firefox manifest: ${err.message}`);

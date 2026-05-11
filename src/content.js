@@ -1,21 +1,21 @@
 const colorScheme = [
-	'primaryColor',
-	'secondaryColor',
-	'tertiaryColor',
-	'backgroundColor',
-	'surfaceColor',
-	'surfaceColorHover',
-	'defaultWhite',
-	'textColor',
-	'arrowPrimary',
-	'arrowSecondary',
-	'arrowTertiary',
-	'arrowAlternate',
-	'lastMove',
-	'preMove',
-	'moveIndicator',
-	'boardDark',
-	'boardLight',
+	"primaryColor",
+	"secondaryColor",
+	"tertiaryColor",
+	"backgroundColor",
+	"surfaceColor",
+	"surfaceColorHover",
+	"defaultWhite",
+	"textColor",
+	"arrowPrimary",
+	"arrowSecondary",
+	"arrowTertiary",
+	"arrowAlternate",
+	"lastMove",
+	"preMove",
+	"moveIndicator",
+	"boardDark",
+	"boardLight",
 ];
 const STREAMER_STYLES = `
 @media (min-width: 800px),
@@ -216,25 +216,25 @@ main.lobby {
 `;
 
 colorScheme.forEach((scheme) => schemeSet(scheme));
-console.debug('Scheme set');
+console.debug("Scheme set");
 
 function schemeSet(scheme) {
-	chrome.storage.sync.get(scheme, function (result) {
-		console.log(scheme + ' : ' + result[scheme]);
+	chrome.storage.sync.get(scheme, (result) => {
+		console.log(`${scheme} : ${result[scheme]}`);
 		if (result[scheme]) {
-			let getStyle = document.documentElement.getAttribute('style');
-			let appendStyle = getStyle ? getStyle : '';
+			const getStyle = document.documentElement.getAttribute("style");
+			const appendStyle = getStyle ? getStyle : "";
 
-			let r = parseInt(result[scheme].substring(1, 3), 16);
-			let g = parseInt(result[scheme].substring(3, 5), 16);
-			let b = parseInt(result[scheme].substring(5, 7), 16);
+			const r = parseInt(result[scheme].substring(1, 3), 16);
+			const g = parseInt(result[scheme].substring(3, 5), 16);
+			const b = parseInt(result[scheme].substring(5, 7), 16);
 
-			let setVar = `--${scheme}: ${result[scheme]} !important;`;
-			let setRGBVar = `--${scheme}RGB: ${r}, ${g}, ${b} !important;`;
+			const setVar = `--${scheme}: ${result[scheme]} !important;`;
+			const setRGBVar = `--${scheme}RGB: ${r}, ${g}, ${b} !important;`;
 
 			document.documentElement.setAttribute(
-				'style',
-				`${appendStyle} ${setVar} ${setRGBVar}`
+				"style",
+				`${appendStyle} ${setVar} ${setRGBVar}`,
 			);
 		}
 	});
@@ -246,64 +246,64 @@ function schemeSet(scheme) {
 //if true, use lichess variable
 //else use custom variables
 
-chrome.storage.sync.get(null, function (result) {
-	let darkCoord = result['defaultBoardSwitch']
-		? 'var(--cg-coord-color-black)'
-		: 'var(--boardDark)';
-	let lightCoord = result['defaultBoardSwitch']
-		? 'var(--cg-coord-color-white)'
-		: 'var(--boardLight)';
-	let getStyle = document.documentElement.getAttribute('style');
-	let appendStyle = getStyle ? getStyle : '';
+chrome.storage.sync.get(null, (result) => {
+	const darkCoord = result.defaultBoardSwitch
+		? "var(--cg-coord-color-black)"
+		: "var(--boardDark)";
+	const lightCoord = result.defaultBoardSwitch
+		? "var(--cg-coord-color-white)"
+		: "var(--boardLight)";
+	const getStyle = document.documentElement.getAttribute("style");
+	const appendStyle = getStyle ? getStyle : "";
 	document.documentElement.setAttribute(
-		'style',
-		`${appendStyle} --coordDark: ${darkCoord} !important; --coordLight: ${lightCoord} !important;`
+		"style",
+		`${appendStyle} --coordDark: ${darkCoord} !important; --coordLight: ${lightCoord} !important;`,
 	);
 });
 
 function addVerticalLayoutButton(result) {
-	result = result['streamerMode'];
-	console.debug('Result: ', result);
+	result = result.streamerMode;
+	console.debug("Result: ", result);
 	if (result) {
-		console.debug('enableStreamerMode');
+		console.debug("enableStreamerMode");
 		enableStreamerMode();
 	}
 
-	console.debug('Creating button');
-	var button = document.createElement('button');
+	console.debug("Creating button");
+	var button = document.createElement("button");
 	button.textContent = result
-		? 'Disable Vertical Layout'
-		: 'Enable Vertical Layout';
-	button.classList.add('button');
-	button.classList.add('streamerButton');
+		? "Disable Vertical Layout"
+		: "Enable Vertical Layout";
+	button.classList.add("button");
+	button.classList.add("streamerButton");
 
-	console.debug('Add click event');
+	console.debug("Add click event");
 
-	button.addEventListener('click', function () {
+	button.addEventListener("click", () => {
 		if (result) {
-			syncSet('streamerMode', false);
+			syncSet("streamerMode", false);
 			window.location.reload();
 		} else {
-			syncSet('streamerMode', true);
+			syncSet("streamerMode", true);
 			window.location.reload();
 		}
 	});
 
-	document.querySelector('.round').appendChild(button);
+	document.querySelector(".round").appendChild(button);
 
-	console.debug('Added button');
+	console.debug("Added button");
 }
 
-chrome.storage.sync.get('layoutPreference', function (result) {
-	if (result['layoutPreference'] !== 'lichess') {
-		let styleSheet = document.createElement('style');
-		styleSheet.type = 'text/css';
+chrome.storage.sync.get("layoutPreference", (result) => {
+	if (result.layoutPreference !== "lichess") {
+		const styleSheet = document.createElement("style");
+		styleSheet.type = "text/css";
 		styleSheet.innerText = LAYOUT_CHANGE;
 
 		if (document.head) {
 			document.head.appendChild(styleSheet);
 		} else {
-			const obs = new MutationObserver(function () {
+			const obs = new MutationObserver(() => {
 				if (document.head) {
 					obs.disconnect();
 					document.head.appendChild(styleSheet);
@@ -318,28 +318,28 @@ chrome.storage.sync.get('layoutPreference', function (result) {
 });
 
 // Setup Streamer mode button only runs on match/tv pages
-chrome.storage.sync.get('streamerMode', function (result) {
-	const round = document.querySelector('.round');
-	console.debug('Round: ', round);
+chrome.storage.sync.get("streamerMode", (result) => {
+	const round = document.querySelector(".round");
+	console.debug("Round: ", round);
 
 	if (round) {
 		addVerticalLayoutButton(result);
 	} else {
-		const obs = new MutationObserver(function () {
-			if (document.querySelector('.round')) {
-				console.debug('Found .round');
+		const obs = new MutationObserver(() => {
+			if (document.querySelector(".round")) {
+				console.debug("Found .round");
 				obs.disconnect();
 				addVerticalLayoutButton(result);
 			}
 		});
-		obs.observe(document.documentElement, {childList: true, subtree: true});
-		console.debug('Connected MutationObserver');
+		obs.observe(document.documentElement, { childList: true, subtree: true });
+		console.debug("Connected MutationObserver");
 	}
 });
 
 function enableStreamerMode() {
-	var styleSheet = document.createElement('style');
-	styleSheet.type = 'text/css';
+	var styleSheet = document.createElement("style");
+	styleSheet.type = "text/css";
 	styleSheet.innerText = STREAMER_STYLES;
 	document.head.appendChild(styleSheet);
 }
@@ -351,18 +351,18 @@ function syncSet(scheme, value) {
 }
 
 // Allowing to clear sync storage for cypress
-window.addEventListener('message', function (event) {
+window.addEventListener("message", (event) => {
 	if (event.source !== window) {
 		return;
 	}
-	if (event.data.type === 'cypress' && event.data.command === 'sync.clear') {
+	if (event.data.type === "cypress" && event.data.command === "sync.clear") {
 		chrome.storage.sync.clear();
 	}
 });
 
 // Deterministic live updates: react to changes in synced storage
-chrome.storage.onChanged.addListener(function (changes, areaName) {
-	if (areaName !== 'sync') return;
+chrome.storage.onChanged.addListener((changes, areaName) => {
+	if (areaName !== "sync") return;
 	for (const key in changes) {
 		const change = changes[key];
 		// Update any color scheme variable immediately
@@ -371,36 +371,34 @@ chrome.storage.onChanged.addListener(function (changes, areaName) {
 			const r = parseInt(newColor.substring(1, 3), 16);
 			const g = parseInt(newColor.substring(3, 5), 16);
 			const b = parseInt(newColor.substring(5, 7), 16);
-			const currentStyle =
-				document.documentElement.getAttribute('style') || '';
+			const currentStyle = document.documentElement.getAttribute("style") || "";
 			document.documentElement.setAttribute(
-				'style',
-				`${currentStyle} --${key}: ${newColor} !important; --${key}RGB: ${r}, ${g}, ${b} !important;`
+				"style",
+				`${currentStyle} --${key}: ${newColor} !important; --${key}RGB: ${r}, ${g}, ${b} !important;`,
 			);
 		}
 		// Keep coord variables in sync when default board toggles
-		if (key === 'defaultBoardSwitch') {
+		if (key === "defaultBoardSwitch") {
 			const useDefault = !!changes[key].newValue;
 			const darkCoord = useDefault
-				? 'var(--cg-coord-color-black)'
-				: 'var(--boardDark)';
+				? "var(--cg-coord-color-black)"
+				: "var(--boardDark)";
 			const lightCoord = useDefault
-				? 'var(--cg-coord-color-white)'
-				: 'var(--boardLight)';
-			const currentStyle =
-				document.documentElement.getAttribute('style') || '';
+				? "var(--cg-coord-color-white)"
+				: "var(--boardLight)";
+			const currentStyle = document.documentElement.getAttribute("style") || "";
 			document.documentElement.setAttribute(
-				'style',
-				`${currentStyle} --coordDark: ${darkCoord} !important; --coordLight: ${lightCoord} !important;`
+				"style",
+				`${currentStyle} --coordDark: ${darkCoord} !important; --coordLight: ${lightCoord} !important;`,
 			);
 		}
 	}
 });
 
 // Listen for color updates from the popup (Firefox-friendly, MV2-safe)
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-	if (!message || !message.type) return;
-	if (message.type === 'setColor') {
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+	if (!message?.type) return;
+	if (message.type === "setColor") {
 		try {
 			const scheme = message.scheme;
 			const color = message.color;
@@ -408,17 +406,16 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			const g = message.g;
 			const b = message.b;
 
-			const currentStyle =
-				document.documentElement.getAttribute('style') || '';
+			const currentStyle = document.documentElement.getAttribute("style") || "";
 			document.documentElement.setAttribute(
-				'style',
+				"style",
 				currentStyle +
-					`--${scheme}: ${color} !important;--${scheme}RGB: ${r}, ${g}, ${b} !important;`
+					`--${scheme}: ${color} !important;--${scheme}RGB: ${r}, ${g}, ${b} !important;`,
 			);
-			if (typeof sendResponse === 'function') sendResponse({ok: true});
+			if (typeof sendResponse === "function") sendResponse({ ok: true });
 		} catch (e) {
-			if (typeof sendResponse === 'function')
-				sendResponse({ok: false, error: String(e)});
+			if (typeof sendResponse === "function")
+				sendResponse({ ok: false, error: String(e) });
 		}
 		// Indicate we will not send an async response
 		return false;

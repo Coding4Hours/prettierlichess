@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
 body {
 	padding: 20px 20px;
 	background-color: #2b343b;
-	font-family: 'Red Hat Text', sans-serif;
+	font-family: "Red Hat Text", sans-serif;
 	color: white;
 	font-size: 18px;
 	width: 300px;
@@ -120,7 +120,7 @@ body {
 	cursor: pointer;
 	transition: transform 0.2s ease-in-out;
 	font-size: 12px;
-	font-family: 'Red Hat Text', sans-serif;
+	font-family: "Red Hat Text", sans-serif;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -153,7 +153,7 @@ body {
 
 /* Picker Styles Overrides */
 
-input[type='color'] {
+input[type="color"] {
 	-webkit-appearance: none;
 	border: 2px solid white;
 	width: 20px;
@@ -164,53 +164,53 @@ input[type='color'] {
 	background: none;
 }
 
-input[type='color']::-webkit-color-swatch-wrapper {
+input[type="color"]::-webkit-color-swatch-wrapper {
 	padding: 0;
 	border: none;
 	outline: none;
 }
 
-input[type='color']::-webkit-color-swatch {
+input[type="color"]::-webkit-color-swatch {
 	border: none;
 	transform: scale(2);
 }
 
 .pickr .pcr-button:after,
 .pickr .pcr-button:before {
-	border-radius: 100% !important;
-	overflow: hidden !important;
-	outline: none !important;
-	border: 1px solid white !important;
+	border-radius: 100%;
+	overflow: hidden;
+	outline: none;
+	border: 1px solid white;
 }
 
 .pcr-app .pcr-interaction input {
-	background-color: #2b343b !important;
-	color: white !important;
+	background-color: #2b343b;
+	color: white;
 }
 
 .pcr-app .pcr-interaction .pcr-save,
 .pcr-app .pcr-interaction .pcr-type.active {
-	background-color: #9fc0a2 !important;
-	color: #2b343b !important;
+	background-color: #9fc0a2;
+	color: #2b343b;
 }
 
 .pcr-app {
-	background-color: #3f474d !important;
-	font-family: 'Red Hat Text', sans-serif !important;
-	color: white !important;
-	border-radius: 8px !important;
-	overflow: hidden !important;
+	background-color: #3f474d;
+	font-family: "Red Hat Text", sans-serif;
+	color: white;
+	border-radius: 8px;
+	overflow: hidden;
 }
 
-.pcr-app[data-theme='nano']
+.pcr-app[data-theme="nano"]
 	.pcr-selection
 	.pcr-color-preview
 	.pcr-current-color {
-	border: 1px solid white !important;
+	border: 1px solid white;
 }
 
 .pcr-app button {
-	transition: transform 0.4s ease-in-out !important;
+	transition: transform 0.4s ease-in-out;
 }
 
 .pcr-app button.pcr-active,
@@ -221,6 +221,6 @@ input[type='color']::-webkit-color-swatch {
 .pickr button:focus,
 .pickr input.pcr-active,
 .pickr input:focus {
-	box-shadow: none !important;
-	transform: scale(0.9) !important;
+	box-shadow: none;
+	transform: scale(0.9);
 }

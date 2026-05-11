@@ -9,37 +9,33 @@
     "watch": "npx concurrently --names \"chrome,firefox\" --prefix-colors \"blue,red\" \"cross-env BROWSER=chrome npx webpack -w\" \"cross-env BROWSER=firefox npx webpack -w\"",
     "popup:serve": "cd dist-chrome && node ../testing/popupServer.js",
     "popup:run": "npm run build:chrome && cd dist-chrome && node ../testing/popupServer.js",
-    "format:fix": "npx prettier --write --ignore-unknown .",
-    "format:check": "npx prettier --check --ignore-unknown .",
+    "check": "biome check",
     "cy:popup": "cypress run --browser chrome --spec 'cypress/e2e/testPopup.cy.js' && cypress run --browser firefox --spec 'cypress/e2e/testPopup.cy.js'",
     "cy:open": "cypress open",
-    "test:popup": "start-server-and-test popup:run http://localhost:8000/ cy:popup",
-    "prepare": "husky install"
+    "test:popup": "start-server-and-test popup:run http://localhost:8000/ cy:popup"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Coding4Hours/prettierlichess.git"
   },
-  "author": "",
+  "author": "coding4hours",
   "bugs": {
     "url": "https://github.com/Coding4Hours/prettierlichess/issues"
   },
   "homepage": "https://prettierlichess.github.io/",
   "devDependencies": {
+    "biome": "^0.3.3",
     "clean-webpack-plugin": "^4.0.0",
     "concurrently": "^8.2.2",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^10.1.0",
     "cypress": "^12.6.0",
-    "husky": "^8.0.3",
     "mime": "^3.0.0",
-    "prettier": "^3.0.3",
     "start-server-and-test": "^2.0.1",
     "web-ext": "^7.8.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
-  "private": true,
   "dependencies": {
     "@simonwep/pickr": "^1.9.0"
   },

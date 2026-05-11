@@ -25,12 +25,7 @@
 	"browser_action": {
 		"default_popup": "popup.html"
 	},
-	"permissions": [
-		"activeTab",
-		"storage",
-		"declarativeContent",
-		"downloads"
-	],
+	"permissions": ["activeTab", "storage", "declarativeContent", "downloads"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": false
